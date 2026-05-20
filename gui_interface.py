@@ -2,6 +2,7 @@
 """
 GUI Interface for Math Buddy AI
 User-friendly Tkinter interface with camera and file upload
+Enhanced with better error handling
 """
 
 import tkinter as tk
@@ -90,6 +91,21 @@ class MathBuddyGUI:
         # Right panel - Results and solver
         right_panel = tk.Frame(main_frame, bg="white", relief=tk.RIDGE, bd=2)
         right_panel.pack(side=tk.RIGHT, fill=tk.BOTH, expand=True, padx=5)
+        
+        # Help info frame
+        help_frame = tk.Frame(right_panel, bg="#e8f4f8", relief=tk.SUNKEN, bd=1)
+        help_frame.pack(padx=10, pady=5, fill=tk.X)
+        
+        help_label = tk.Label(
+            help_frame,
+            text="💡 Tip: You can type words like 'two x plus three equals seven' or use math format like '2*x + 3 = 7'",
+            font=("Arial", 9),
+            bg="#e8f4f8",
+            fg="#2c3e50",
+            wraplength=400,
+            justify=tk.LEFT
+        )
+        help_label.pack(padx=5, pady=5)
         
         # Recognized equation
         eq_label = tk.Label(right_panel, text="📋 Recognized Equation", font=("Arial", 12, "bold"), bg="white")
